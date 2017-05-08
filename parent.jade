@@ -1,0 +1,63 @@
+include Lesson_Information\lesson_info.jade
+include Lesson_Information\Article.jade
+
+
+
+doctype html
+html
+  head
+    title This is an email
+    meta(http-equiv="Content-Type",content="text/html; charset=utf-8")
+    meta(name="viewport",content="width=device-width")
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    style
+        include Styles\style.css
+  body
+    .email-background
+      .pre-header
+        | Here is what the children learned in Sunday School yesterday!
+      
+      .email-container
+        img(src=headerimage)
+        
+        h1 #{lessontitle}
+      
+        .hr
+        
+        table
+          tr
+            td 
+              h3 Bible Story:
+            td 
+              a(href="https://www.biblegateway.com/passage/?search="+ lessonurl +"\&version=NIV",target="blank",style="color:black;") #{BibleStory}
+          tr
+            td
+              h3 Anchor Point:
+            td= AnchorPoint
+          tr
+            td
+              h3 Memory Verse:
+            td!= MemoryVerse
+          tr
+            td(colspan="2")
+              h3 Lesson Summary:
+              .hr(style="width:35%;")
+              br
+              p 
+                include Lesson_Information\lessondetail.html
+          tr
+            td(colspan="2",style="text-align:center; padding-top: 30px;")
+              a(href=parentsguide, class="button") Parent's Guide
+        
+        
+        
+        .Article(style="padding-top:75px;")
+          .hr(style="width:100%")
+  
+          img(src=article_img_url)
+          h3= article_title
+          br
+          p= article_blurb
+            a(href=article_url) &nbsp; Read More...
+          
