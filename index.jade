@@ -1,7 +1,5 @@
 include Lesson_Information\lesson_info.jade
-include Lesson_Information\Article.jade
-
-
+include Article\Article.jade
 
 doctype html
 html
@@ -53,13 +51,17 @@ html
               a(href=lessonReproducibles, class="button") Lesson Reproducibles
         
         
-        
+        .news(style="padding-top:50px;")
+            include News\news.html
+
+
         .Article(style="padding-top:75px;")
-          .hr(style="width:100%")
-  
-          img(src=article_img_url)
-          h3= article_title
-          br
-          p= article_blurb
-            a(href=article_url) &nbsp; Read More...
+            .hr(style="width:100%")
+    
+            img(src=article_img_url)
+            h3= article_title
+            br
+            p
+              include Article\article_blurb.html
+              a(href=article_url) &nbsp; Read More...
           
